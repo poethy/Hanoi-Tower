@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.game-info {
+    margin-bottom: 2rem;
+}
+
+.level-selector {
+    margin-bottom: 1rem;
+}
+
+.level-selector select {
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.towers {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tower {
+    width: 200px;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tower::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 200px;
+    background-color: #666;
+    border-radius: 5px;
+    z-index: 0;
+}
+
+.disk {
+    height: 30px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.disk[data-size="1"] {
+    width: 60px;
+    background-color: #ff6b6b;
+}
+
+.disk[data-size="2"] {
+    width: 80px;
+    background-color: #4ecdc4;
+}
+
+.disk[data-size="3"] {
+    width: 100px;
+    background-color: #45b7d1;
+}
+
+.disk[data-size="4"] {
+    width: 120px;
+    background-color: #96ceb4;
+}
+
+.disk[data-size="5"] {
+    width: 140px;
+    background-color: #ffeead;
+}
+
+.disk[data-size="6"] {
+    width: 160px;
+    background-color: #d4a5a5;
+}
+
+.disk[data-size="7"] {
+    width: 180px;
+    background-color: #9b59b6;
+}
+
+.tower.selected {
+    background-color: #ffd700;
+}
+
+.tower.selected::before {
+    background-color: #b8860b;
+} 
