@@ -7,7 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div id="auth-container" class="auth-container" style="display:none;">
+        <div class="auth-tabs">
+            <button id="show-login" class="active">Iniciar Sesión</button>
+            <button id="show-register">Registrarse</button>
+        </div>
+        <form id="login-form" class="auth-form">
+            <h2>Iniciar Sesión</h2>
+            <input type="email" id="login-email" placeholder="Email" required autocomplete="off">
+            <input type="password" id="login-password" placeholder="Contraseña" required autocomplete="off">
+            <button type="submit">Entrar</button>
+        </form>
+        <form id="register-form" class="auth-form" style="display:none;">
+            <h2>Registrarse</h2>
+            <input type="text" id="register-username" placeholder="Nombre de usuario" required maxlength="16" autocomplete="off">
+            <input type="email" id="register-email" placeholder="Email" required autocomplete="off">
+            <input type="password" id="register-password" placeholder="Contraseña" required autocomplete="off">
+            <button type="submit">Crear cuenta</button>
+        </form>
+    </div>
+    <div class="container" id="main-container" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <span id="user-info"></span>
+            <span id="user-role" style="margin-left:1rem; font-weight:600;"></span>
+            <button id="logout" style="display:none;">Cerrar sesión</button>
+        </div>
         <h1>Torre de Hanoi</h1>
         <div class="game-info">
             <div class="level-selector">
@@ -28,6 +52,37 @@
             <div class="tower" id="tower1" data-tower="1"></div>
             <div class="tower" id="tower2" data-tower="2"></div>
             <div class="tower" id="tower3" data-tower="3"></div>
+        </div>
+        <div id="leaderboard-container">
+            <h2>Leaderboard</h2>
+            <table id="leaderboard">
+                <thead>
+                    <tr><th>Usuario</th><th>Discos</th><th>Movimientos</th><th>Puntaje</th><th class="admin-only" style="display:none;">Acciones</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="admin-panel" style="display:none; margin-top:2rem;">
+            <h2>Gestión de Usuarios</h2>
+            <table id="users-table">
+                <thead>
+                    <tr><th>Usuario</th><th>Email</th><th>Rol</th><th>Acciones</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div id="success-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>¡Juego completado!</h2>
+            <p id="success-message"></p>
+            <button id="modal-ok">Aceptar</button>
+        </div>
+    </div>
+    <div id="modal-bg" class="modal" style="display:none;">
+        <div class="modal-content" id="modal-dynamic-content">
+            <!-- Aquí se inyecta el contenido dinámico del modal -->
         </div>
     </div>
     <script src="script.js"></script>
